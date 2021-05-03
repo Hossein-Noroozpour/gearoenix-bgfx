@@ -4,10 +4,10 @@
 #include "../../physics/gx-phs-engine.hpp"
 #include "../../platform/gx-plt-application.hpp"
 #include "../camera/gx-rnd-cmr-camera.hpp"
-#include "../engine/gx-rnd-eng-engine.hpp"
 #include "../model/gx-rnd-mdl-manager.hpp"
 #include "../model/gx-rnd-mdl-transformation.hpp"
 #include "../texture/gx-rnd-txt-target.hpp"
+#include "gearoenix/render/gx-rnd-engine.hpp"
 #include "gx-rnd-scn-manager.hpp"
 #include "gx-rnd-scn-scene.hpp"
 #include <utility>

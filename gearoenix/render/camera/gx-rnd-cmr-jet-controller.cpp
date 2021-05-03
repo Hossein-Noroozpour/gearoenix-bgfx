@@ -2,7 +2,7 @@
 #include "../../core/event/gx-cr-ev-engine.hpp"
 #include "../../core/sync/gx-cr-sync-update-manager.hpp"
 #include "../../platform/gx-plt-application.hpp"
-#include "../engine/gx-rnd-eng-engine.hpp"
+#include "gearoenix/render/gx-rnd-engine.hpp"
 #include "gx-rnd-cmr-camera.hpp"
 #include "gx-rnd-cmr-transformation.hpp"
 

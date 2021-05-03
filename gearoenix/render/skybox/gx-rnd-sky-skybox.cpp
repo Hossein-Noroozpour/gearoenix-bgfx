@@ -1,10 +1,10 @@
 #include "gx-rnd-sky-skybox.hpp"
 #include "../../core/asset/gx-cr-asset-manager.hpp"
 #include "../../platform/gx-plt-application.hpp"
-#include "../engine/gx-rnd-eng-engine.hpp"
 #include "../material/gx-rnd-mat-material.hpp"
 #include "../mesh/gx-rnd-msh-manager.hpp"
 #include "../mesh/gx-rnd-msh-mesh.hpp"
+#include "gearoenix/render/gx-rnd-engine.hpp"
 
 void gearoenix::render::skybox::Skybox::init(const core::sync::EndCaller<core::sync::EndCallerIgnore>& c) noexcept
 {

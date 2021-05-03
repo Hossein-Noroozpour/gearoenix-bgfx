@@ -4,7 +4,6 @@
 #include "../camera/gx-rnd-cmr-manager.hpp"
 #include "../camera/gx-rnd-cmr-perspective.hpp"
 #include "../camera/gx-rnd-cmr-transformation.hpp"
-#include "../engine/gx-rnd-eng-engine.hpp"
 #include "../graph/node/gx-rnd-gr-nd-irradiance-convoluter.hpp"
 #include "../graph/node/gx-rnd-gr-nd-mipmap-generator.hpp"
 #include "../graph/node/gx-rnd-gr-nd-radiance-convoluter.hpp"
@@ -13,6 +12,7 @@
 #include "../texture/gx-rnd-txt-manager.hpp"
 #include "../texture/gx-rnd-txt-target.hpp"
 #include "../texture/gx-rnd-txt-texture-cube.hpp"
+#include "gearoenix/render/gx-rnd-engine.hpp"
 
 gearoenix::render::reflection::Runtime::Runtime(
     const core::Id id,

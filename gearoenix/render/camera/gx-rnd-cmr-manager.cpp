@@ -1,5 +1,5 @@
 #include "gx-rnd-cmr-manager.hpp"
-#include "../engine/gx-rnd-eng-engine.hpp"
+#include "gearoenix/render/gx-rnd-engine.hpp"
 #include "gx-rnd-cmr-orthographic.hpp"
 #include "gx-rnd-cmr-perspective.hpp"
 

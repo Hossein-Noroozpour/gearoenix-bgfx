@@ -1,9 +1,9 @@
 #include "gx-phs-cns-window-placer.hpp"
 #include "../../core/event/gx-cr-ev-engine.hpp"
 #include "../../platform/gx-plt-application.hpp"
-#include "../../render/engine/gx-rnd-eng-engine.hpp"
 #include "../../render/model/gx-rnd-mdl-model.hpp"
 #include "../../render/model/gx-rnd-mdl-transformation.hpp"
+#include "gearoenix/render/gx-rnd-engine.hpp"
 
 void gearoenix::physics::constraint::WindowPlacer::update() noexcept
 {

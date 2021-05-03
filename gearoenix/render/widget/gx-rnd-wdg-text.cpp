@@ -2,7 +2,6 @@
 #include "../../core/asset/gx-cr-asset-manager.hpp"
 #include "../../physics/collider/gx-phs-cld-collider.hpp"
 #include "../../platform/gx-plt-application.hpp"
-#include "../engine/gx-rnd-eng-engine.hpp"
 #include "../font/gx-rnd-fnt-2d.hpp"
 #include "../font/gx-rnd-fnt-manager.hpp"
 #include "../material/gx-rnd-mat-unlit.hpp"
@@ -12,6 +11,7 @@
 #include "../model/gx-rnd-mdl-manager.hpp"
 #include "../model/gx-rnd-mdl-mesh.hpp"
 #include "../shader/gx-rnd-shd-shader.hpp"
+#include "gearoenix/render/gx-rnd-engine.hpp"
 #include <codecvt>
 #include <locale>
 

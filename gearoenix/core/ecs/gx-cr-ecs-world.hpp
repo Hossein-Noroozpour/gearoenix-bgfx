@@ -1,6 +1,6 @@
 #ifndef GEAROENIX_CORE_ECS_WORLD_HPP
 #define GEAROENIX_CORE_ECS_WORLD_HPP
-#include "../../platform/macro/gx-plt-mcr-lock.hpp"
+#include "../macro/gx-cr-mcr-lock.hpp"
 #include "gx-cr-ecs-archetype.hpp"
 #include "gx-cr-ecs-entity.hpp"
 #include <variant>

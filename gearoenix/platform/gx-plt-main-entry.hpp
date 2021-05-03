@@ -1,28 +1,17 @@
 #ifndef GEAROENIX_PLATFORM_MAIN_ENTRY_HPP
 #define GEAROENIX_PLATFORM_MAIN_ENTRY_HPP
+#include "../core/gx-cr-build-configuration.hpp"
+#include "gx-plt-bgfx-flags.hpp"
 #include "gx-plt-build-configuration.hpp"
+#include <bgfx/examples/common/common.h>
 
-#ifdef GX_PLATFORM_INTERFACE_WIN32
-#include "windows/gx-plt-win-main-entry.hpp"
-#elif defined(GX_PLATFORM_INTERFACE_SDL2)
-#include "sdl2/gx-plt-sdl2-main-entry.hpp"
-#elif defined(GX_PLATFORM_INTERFACE_BGFX)
-#include "bgfx/gx-plt-bgfx-main-entry.hpp"
-#else
-
-#define GX_MAIN_ENTRY_ARGS_DEF \
-    [[maybe_unused]] int argc, \
-        [[maybe_unused]] char const *const *argv
-
-#define GX_MAIN_ENTRY_ARGS argc, argv
-
-#define GX_MAIN_ENTRY(expr)          \
-    int main(GX_MAIN_ENTRY_ARGS_DEF) \
-    {                                \
-        expr;                        \
-        return 0;                    \
-    }
-
-#endif
+#define GEAROENIX_START(ApplicationMainClass)                                 \
+    using _gearoenix_platform_Application = gearoenix::platform::Application; \
+    ENTRY_IMPLEMENT_MAIN(                                                     \
+        _gearoenix_platform_Application,                                      \
+        GX_ENGINE_NAME,                                                       \
+        GX_APPLICATION_NAME,                                                  \
+        "https://www.gearoenix.com",                                          \
+        new ApplicationMainClass());
 
 #endif

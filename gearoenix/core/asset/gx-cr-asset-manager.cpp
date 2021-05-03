@@ -4,7 +4,6 @@
 #include "../../platform/gx-plt-application.hpp"
 #include "../../platform/stream/gx-plt-stm-asset.hpp"
 #include "../../render/camera/gx-rnd-cmr-manager.hpp"
-#include "../../render/engine/gx-rnd-eng-engine.hpp"
 #include "../../render/font/gx-rnd-fnt-manager.hpp"
 #include "../../render/light/gx-rnd-lt-manager.hpp"
 #include "../../render/mesh/gx-rnd-msh-manager.hpp"
@@ -13,6 +12,7 @@
 #include "../../render/scene/gx-rnd-scn-manager.hpp"
 #include "../../render/skybox/gx-rnd-sky-manager.hpp"
 #include "../../render/texture/gx-rnd-txt-manager.hpp"
+#include "gearoenix/render/gx-rnd-engine.hpp"
 
 gearoenix::core::asset::Manager::Manager(platform::Application* const platform_application, const std::string& name) noexcept
     : platform_application(platform_application)

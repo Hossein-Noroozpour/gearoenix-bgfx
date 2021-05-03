@@ -7,7 +7,6 @@
 #include "../../physics/collider/gx-phs-cld-aabb.hpp"
 #include "../../physics/gx-phs-engine.hpp"
 #include "../../platform/gx-plt-application.hpp"
-#include "../engine/gx-rnd-eng-engine.hpp"
 #include "../font/gx-rnd-fnt-2d.hpp"
 #include "../font/gx-rnd-fnt-manager.hpp"
 #include "../material/gx-rnd-mat-unlit.hpp"
@@ -16,6 +15,7 @@
 #include "../model/gx-rnd-mdl-dynamic.hpp"
 #include "../model/gx-rnd-mdl-manager.hpp"
 #include "../model/gx-rnd-mdl-mesh.hpp"
+#include "gearoenix/render/gx-rnd-engine.hpp"
 #include <cmath>
 #include <string>
 

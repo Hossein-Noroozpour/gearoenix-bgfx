@@ -12,7 +12,7 @@ namespace gearoenix::core::sync {
 struct WorkWaiter;
 }
 
-namespace gearoenix::render::engine {
+namespace gearoenix::render {
 struct Engine;
 }
 
@@ -21,14 +21,14 @@ struct Manager final {
     typedef std::map<std::string, core::ecs::Entity::id_t> NameToIdMap;
     typedef std::map<core::ecs::Entity::id_t, std::string> IdToNameMap;
 
-    GX_GET_PTRC_PRV(engine::Engine, e)
+    GX_GET_CRRF_PRV(Engine, e)
     GX_GET_UCPTR_PRV(core::sync::WorkWaiter, io_worker)
     GX_GET_VAL_PRV(core::ecs::Entity::id_t, default_scene, 0)
     GX_GET_CREF_PRV(NameToIdMap, name_to_id)
     GX_GET_CREF_PRV(IdToNameMap, id_to_name)
 
 public:
-    explicit Manager(engine::Engine* e) noexcept;
+    explicit Manager(const Engine& e) noexcept;
     ~Manager() noexcept;
 };
 }

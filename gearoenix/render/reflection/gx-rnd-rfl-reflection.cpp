@@ -2,8 +2,8 @@
 #include "../../physics/accelerator/gx-phs-acc-bvh.hpp"
 #include "../../physics/collider/gx-phs-cld-aabb.hpp"
 #include "../../platform/gx-plt-application.hpp"
-#include "../engine/gx-rnd-eng-engine.hpp"
 #include "../model/gx-rnd-mdl-model.hpp"
+#include "gearoenix/render/gx-rnd-engine.hpp"
 
 gearoenix::render::reflection::Reflection::Reflection(
     const core::Id id,

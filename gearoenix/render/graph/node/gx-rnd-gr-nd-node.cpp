@@ -1,9 +1,9 @@
 #include "gx-rnd-gr-nd-node.hpp"
 #include "../../command/gx-rnd-cmd-buffer.hpp"
 #include "../../command/gx-rnd-cmd-manager.hpp"
-#include "../../engine/gx-rnd-eng-engine.hpp"
 #include "../../pipeline/gx-rnd-pip-manager.hpp"
 #include "../../sync/gx-rnd-sy-semaphore.hpp"
+#include "gearoenix/render/gx-rnd-engine.hpp"
 
 gearoenix::render::graph::node::Node::Node(
     std::string name,

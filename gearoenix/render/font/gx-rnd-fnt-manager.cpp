@@ -2,7 +2,7 @@
 #include "../../core/asset/gx-cr-asset-manager.hpp"
 #include "../../platform/gx-plt-application.hpp"
 #include "../../platform/stream/gx-plt-stm-asset.hpp"
-#include "../engine/gx-rnd-eng-engine.hpp"
+#include "gearoenix/render/gx-rnd-engine.hpp"
 #include "gx-rnd-fnt-2d.hpp"
 
 gearoenix::render::font::Manager::Manager(std::unique_ptr<platform::stream::Stream> s, engine::Engine* const e) noexcept

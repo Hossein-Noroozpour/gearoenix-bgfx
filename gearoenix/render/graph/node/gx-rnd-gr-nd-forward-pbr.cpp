@@ -7,7 +7,6 @@
 #include "../../camera/gx-rnd-cmr-camera.hpp"
 #include "../../command/gx-rnd-cmd-buffer.hpp"
 #include "../../command/gx-rnd-cmd-manager.hpp"
-#include "../../engine/gx-rnd-eng-engine.hpp"
 #include "../../light/gx-rnd-lt-cascade-info.hpp"
 #include "../../light/gx-rnd-lt-directional.hpp"
 #include "../../light/gx-rnd-lt-point.hpp"
@@ -24,6 +23,7 @@
 #include "../../texture/gx-rnd-txt-target.hpp"
 #include "../../texture/gx-rnd-txt-texture-2d.hpp"
 #include "../../texture/gx-rnd-txt-texture-cube.hpp"
+#include "gearoenix/render/gx-rnd-engine.hpp"
 #include "gx-rnd-gr-nd-shadow-mapper.hpp"
 
 const unsigned int gearoenix::render::graph::node::ForwardPbr::DIFFUSE_ENVIRONMENT_INDEX = 0;

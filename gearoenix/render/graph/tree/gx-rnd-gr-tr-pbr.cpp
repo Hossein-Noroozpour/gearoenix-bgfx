@@ -4,7 +4,6 @@
 #include "../../../physics/gx-phs-engine.hpp"
 #include "../../../platform/gx-plt-application.hpp"
 #include "../../camera/gx-rnd-cmr-perspective.hpp"
-#include "../../engine/gx-rnd-eng-engine.hpp"
 #include "../../light/gx-rnd-lt-cascade-info.hpp"
 #include "../../light/gx-rnd-lt-directional.hpp"
 #include "../../reflection/gx-rnd-rfl-runtime.hpp"
@@ -20,6 +19,7 @@
 #include "../node/gx-rnd-gr-nd-skybox-cube.hpp"
 #include "../node/gx-rnd-gr-nd-skybox-equirectangular.hpp"
 #include "../node/gx-rnd-gr-nd-unlit.hpp"
+#include "gearoenix/render/gx-rnd-engine.hpp"
 
 #define GX_START_TASKS            \
     unsigned int task_number = 0; \

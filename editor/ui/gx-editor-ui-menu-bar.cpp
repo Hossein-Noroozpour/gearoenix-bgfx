@@ -3,7 +3,7 @@
 
 #include <gearoenix/platform/gx-plt-log.hpp>
 #include <gearoenix/platform/gx-plt-application.hpp>
-#include <gearoenix/render/engine/gx-rnd-eng-engine.hpp>
+#include <gearoenix/render/gx-rnd-engine.hpp>
 #include <gearoenix/render/scene/gx-rnd-scn-manager.hpp>
 
 #include <imgui.h>

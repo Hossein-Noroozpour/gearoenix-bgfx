@@ -1,7 +1,7 @@
 #ifndef GEAROENIX_CORE_ALLOCATOR_HPP
 #define GEAROENIX_CORE_ALLOCATOR_HPP
-#include "../platform/macro/gx-plt-mcr-lock.hpp"
 #include "macro/gx-cr-mcr-getter-setter.hpp"
+#include "macro/gx-cr-mcr-lock.hpp"
 #include <map>
 #include <memory>
 #include <optional>

@@ -1,154 +1,96 @@
 #include "gx-plt-application.hpp"
 #include "../core/gx-cr-application.hpp"
-#include "../render/engine/gx-rnd-eng-engine.hpp"
-#include "gx-plt-log.hpp"
+#include "../render/gx-rnd-engine.hpp"
+#include <bgfx/examples/common/bgfx_utils.h>
+#include <bgfx/examples/common/imgui/imgui.h>
 
-gearoenix::platform::BaseApplication::BaseApplication() noexcept
+gearoenix::platform::Application::Application(
+    const char* const name,
+    const char* const description,
+    const char* const url,
+    core::Application* const core_app) noexcept
+    : entry::AppI(name, description, url)
+#ifdef GX_DEBUG_MODE
+    , debug_state(BGFX_DEBUG_TEXT)
+#endif
+    , reset_state(BGFX_RESET_VSYNC)
+    , core_application(core_app)
+    , render_engine(new render::Engine(*this))
 {
-    if (!configuration.get_fullscreen()) {
-        initialize_window_size(
-            static_cast<decltype(window_width)>(configuration.get_window_width()),
-            static_cast<decltype(window_height)>(configuration.get_window_height()));
-    }
 }
 
-gearoenix::platform::BaseApplication::~BaseApplication() noexcept = default;
+gearoenix::platform::Application::~Application() noexcept = default;
 
-void gearoenix::platform::BaseApplication::initialize_window_position(
-    const int x, const int y) noexcept
+void gearoenix::platform::Application::init(
+    const std::int32_t argc, const char* const* const argv,
+    const std::uint32_t win_width, const std::uint32_t win_height)
 {
-    window_x = x;
-    window_y = y;
+    window_width = win_width;
+    window_height = win_height;
+
+    Args args(argc, argv);
+
+    bgfx::Init init;
+    init.type = args.m_type;
+    init.vendorId = args.m_pciId;
+    init.resolution.width = window_width;
+    init.resolution.height = window_height;
+    init.resolution.reset = reset_state;
+    bgfx::init(init);
+
+    bgfx::setDebug(debug_state);
+
+    bgfx::setViewClear(0, BGFX_CLEAR_COLOR | BGFX_CLEAR_DEPTH, 0x303030ff, 1.0f, 0);
+
+    imguiCreate();
+
+    render_engine->initialize();
+    core_application->initialize(this);
 }
 
-void gearoenix::platform::BaseApplication::initialize_window_size(const int w, const int h) noexcept
-{
-    update_window_size(w, h);
-    window_resizing = false;
-}
-
-void gearoenix::platform::BaseApplication::update_window_size(const int w, const int h) noexcept
-{
-    window_resizing = true;
-    window_width = w;
-    window_height = h;
-    const auto dw = static_cast<double>(w);
-    const auto dh = static_cast<double>(h);
-    window_aspect_ratio = dw / dh;
-    //    ImGuiIO& io = ImGui::GetIO();
-    //    io.DisplaySize.x = static_cast<decltype(io.DisplaySize.x)>(window_width);
-    //    io.DisplaySize.y = static_cast<decltype(io.DisplaySize.y)>(window_height);
-    last_time_window_resized = std::chrono::high_resolution_clock::now();
-}
-
-void gearoenix::platform::BaseApplication::update_window() noexcept
-{
-    if (window_resizing && std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::high_resolution_clock::now() - last_time_window_resized).count() > configuration.get_window_resizing_event_interval_ms()) {
-        // TODO fire the resizing event
-        window_resizing = false;
-    }
-}
-
-void gearoenix::platform::BaseApplication::initialize_mouse_position(const double x, const double y) noexcept
-{
-    pre_mouse_x = mouse_x = x;
-    pre_mouse_y = mouse_y = y;
-    pre_mouse_x_nrm = mouse_x_nrm = (x - static_cast<double>(window_width) * 0.5) / static_cast<double>(window_height);
-    pre_mouse_y_nrm = mouse_y_nrm = y / static_cast<double>(window_height) - 0.5;
-    //    ImGui::GetIO().MousePos = { static_cast<float>(x), static_cast<float>(y) };
-}
-
-void gearoenix::platform::BaseApplication::update_mouse_position(double x, double y) noexcept
-{
-    pre_mouse_x = mouse_x;
-    pre_mouse_y = mouse_y;
-    mouse_x = x;
-    mouse_y = y;
-    pre_mouse_x_nrm = mouse_x_nrm;
-    pre_mouse_y_nrm = mouse_y_nrm;
-    mouse_x_nrm = (x - static_cast<double>(window_width) * 0.5) / static_cast<double>(window_height);
-    mouse_y_nrm = y / static_cast<double>(window_height) - 0.5;
-    delta_mouse_x = mouse_x - pre_mouse_x;
-    delta_mouse_y = mouse_y - pre_mouse_y;
-    delta_mouse_x_nrm = mouse_x_nrm - pre_mouse_x_nrm;
-    delta_mouse_y_nrm = mouse_y_nrm - pre_mouse_y_nrm;
-    //    ImGui::GetIO().MousePos = { static_cast<float>(x), static_cast<float>(y) };
-}
-
-void gearoenix::platform::BaseApplication::mouse_key(const key::Id k, const key::Action a) noexcept
-{
-    //    ImGui::GetIO().MouseDown[key::convert_mouse_to_imgui(k)] = a == key::Action::Press;
-}
-
-void gearoenix::platform::BaseApplication::mouse_wheel(const double v) noexcept
-{
-    //    ImGui::GetIO().MouseWheel += static_cast<float>(v);
-}
-
-void gearoenix::platform::BaseApplication::keyboard_key(const key::Id k, const key::Action a) noexcept
-{
-    const auto pressed = a == key::Action::Press;
-    //    auto& io = ImGui::GetIO();
-    //    io.KeysDown[static_cast<int>(k)] = pressed;
-    //    switch (k) {
-    //    case key::Id::LeftControl:
-    //    case key::Id::RightControl:
-    //        io.KeyCtrl = pressed;
-    //        break;
-    //    case key::Id::LeftShift:
-    //    case key::Id::RightShift:
-    //        io.KeyShift = pressed;
-    //        break;
-    //    case key::Id::LeftAlt:
-    //    case key::Id::RightAlt:
-    //        io.KeyAlt = pressed;
-    //        break;
-    //    case key::Id::LeftSuper:
-    //    case key::Id::RightSuper:
-    //        io.KeySuper = pressed;
-    //        break;
-    //    default:
-    //        break;
-    //    }
-}
-
-void gearoenix::platform::BaseApplication::character_input(const char16_t ch) noexcept
-{
-    //    ImGui::GetIO().AddInputCharacterUTF16(ch);
-}
-
-void gearoenix::platform::BaseApplication::initialize_engine(Application& app) noexcept
-{
-    render_engine = render::engine::Engine::construct(app);
-}
-
-void gearoenix::platform::BaseApplication::going_to_be_closed() noexcept
-{
-    running = false;
-    // TODO
-}
-
-void gearoenix::platform::BaseApplication::terminate() noexcept
+int gearoenix::platform::Application::shutdown()
 {
     core_application = nullptr;
     render_engine = nullptr;
+    imguiDestroy();
+    bgfx::shutdown();
+    return 0;
 }
 
-void gearoenix::platform::BaseApplication::update() noexcept
+bool gearoenix::platform::Application::update()
 {
-    update_window();
-    render_engine->start_frame();
-    core_application->update();
-    render_engine->end_frame();
-}
+    if (!entry::processEvents(window_width, window_height, debug_state, reset_state, &mouse_state)) {
+        std::uint8_t mouse_button_state = mouse_state.m_buttons[entry::MouseButton::Left] ? IMGUI_MBUT_LEFT : 0;
+        mouse_button_state |= mouse_state.m_buttons[entry::MouseButton::Right] ? IMGUI_MBUT_RIGHT : 0;
+        mouse_button_state |= mouse_state.m_buttons[entry::MouseButton::Middle] ? IMGUI_MBUT_MIDDLE : 0;
+        imguiBeginFrame(
+            mouse_state.m_mx, mouse_state.m_my, mouse_button_state, mouse_state.m_mz,
+            static_cast<std::uint16_t>(window_width), static_cast<std::uint16_t>(window_height));
+        showExampleDialog(this);
 
-void gearoenix::platform::BaseApplication::initialize_core_application(
-    Application* const app,
-    core::Application* const core_app) noexcept
-{
-    if (nullptr == core_app) {
-        core_application = std::make_unique<core::Application>();
-    } else {
-        core_application = std::unique_ptr<core::Application>(core_app);
+        render_engine->gui_update();
+        core_application->gui_update();
+
+        imguiEndFrame();
+
+        bgfx::setViewRect(0, 0, 0, static_cast<std::uint16_t>(window_width), static_cast<std::uint16_t>(window_height));
+        bgfx::touch(0);
+        bgfx::dbgTextClear();
+        bgfx::dbgTextPrintf(0, 1, 0x0f, "Color can be changed with ANSI \x1b[9;me\x1b[10;ms\x1b[11;mc\x1b[12;ma\x1b[13;mp\x1b[14;me\x1b[0m code too.");
+
+        bgfx::dbgTextPrintf(80, 1, 0x0f, "\x1b[;0m    \x1b[;1m    \x1b[; 2m    \x1b[; 3m    \x1b[; 4m    \x1b[; 5m    \x1b[; 6m    \x1b[; 7m    \x1b[0m");
+        bgfx::dbgTextPrintf(80, 2, 0x0f, "\x1b[;8m    \x1b[;9m    \x1b[;10m    \x1b[;11m    \x1b[;12m    \x1b[;13m    \x1b[;14m    \x1b[;15m    \x1b[0m");
+
+        const bgfx::Stats* stats = bgfx::getStats();
+        bgfx::dbgTextPrintf(0, 2, 0x0f, "Backbuffer %dW x %dH in pixels, debug text %dW x %dH in characters.", stats->width, stats->height, stats->textWidth, stats->textHeight);
+
+        render_engine->update();
+        core_application->update();
+
+        bgfx::frame();
+
+        return true;
     }
+
+    return false;
 }

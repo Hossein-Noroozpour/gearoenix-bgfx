@@ -3,10 +3,10 @@
 #include "../../physics/collider/gx-phs-cld-collider.hpp"
 #include "../../platform/gx-plt-application.hpp"
 #include "../../platform/stream/gx-plt-stm-asset.hpp"
-#include "../engine/gx-rnd-eng-engine.hpp"
 #include "../material/gx-rnd-mat-material.hpp"
 #include "../mesh/gx-rnd-msh-manager.hpp"
 #include "../mesh/gx-rnd-msh-mesh.hpp"
+#include "gearoenix/render/gx-rnd-engine.hpp"
 #include <utility>
 
 gearoenix::render::model::Mesh::Mesh(platform::stream::Stream* const f, engine::Engine* const e, const core::sync::EndCaller<core::sync::EndCallerIgnore>& c) noexcept

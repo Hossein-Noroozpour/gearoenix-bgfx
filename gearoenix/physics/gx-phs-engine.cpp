@@ -4,7 +4,6 @@
 #include "../math/gx-math-sphere.hpp"
 #include "../platform/gx-plt-application.hpp"
 #include "../render/camera/gx-rnd-cmr-perspective.hpp"
-#include "../render/engine/gx-rnd-eng-engine.hpp"
 #include "../render/graph/tree/gx-rnd-gr-tr-tree.hpp"
 #include "../render/light/gx-rnd-lt-cascade-info.hpp"
 #include "../render/light/gx-rnd-lt-directional.hpp"
@@ -16,6 +15,7 @@
 #include "accelerator/gx-phs-acc-bvh.hpp"
 #include "animation/gx-phs-anm-manager.hpp"
 #include "collider/gx-phs-cld-frustum.hpp"
+#include "gearoenix/render/gx-rnd-engine.hpp"
 #include <functional>
 
 #define GX_START_TASKS            \

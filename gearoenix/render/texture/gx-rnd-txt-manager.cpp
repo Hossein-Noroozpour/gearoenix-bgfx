@@ -4,7 +4,7 @@
 #include "../../platform/gx-plt-application.hpp"
 #include "../../platform/stream/gx-plt-stm-asset.hpp"
 #include "../../platform/stream/gx-plt-stm-local.hpp"
-#include "../engine/gx-rnd-eng-engine.hpp"
+#include "gearoenix/render/gx-rnd-engine.hpp"
 #include "gx-rnd-txt-image.hpp"
 #include "gx-rnd-txt-texture-2d.hpp"
 #include "gx-rnd-txt-texture-cube.hpp"

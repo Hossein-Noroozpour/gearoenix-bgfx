@@ -8,10 +8,10 @@
 #include "../buffer/gx-rnd-buf-uniform.hpp"
 #include "../command/gx-rnd-cmd-buffer.hpp"
 #include "../command/gx-rnd-cmd-manager.hpp"
-#include "../engine/gx-rnd-eng-engine.hpp"
 #include "../graph/node/gx-rnd-gr-nd-shadow-mapper.hpp"
 #include "../model/gx-rnd-mdl-model.hpp"
 #include "../sync/gx-rnd-sy-semaphore.hpp"
+#include "gearoenix/render/gx-rnd-engine.hpp"
 #include <limits>
 
 gearoenix::render::light::CascadeInfo::PerCascade::PerCascade(engine::Engine* const e) noexcept

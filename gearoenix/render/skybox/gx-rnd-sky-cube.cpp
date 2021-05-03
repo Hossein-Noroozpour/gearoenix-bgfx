@@ -1,11 +1,11 @@
 #include "gx-rnd-sky-cube.hpp"
 #include "../../core/asset/gx-cr-asset-manager.hpp"
 #include "../../platform/gx-plt-application.hpp"
-#include "../engine/gx-rnd-eng-engine.hpp"
 #include "../material/gx-rnd-mat-skybox-cube.hpp"
 #include "../reflection/gx-rnd-rfl-baked.hpp"
 #include "../texture/gx-rnd-txt-manager.hpp"
 #include "../texture/gx-rnd-txt-texture-cube.hpp"
+#include "gearoenix/render/gx-rnd-engine.hpp"
 
 gearoenix::render::skybox::Cube::Cube(
     const core::Id my_id,

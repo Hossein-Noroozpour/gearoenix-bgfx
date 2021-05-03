@@ -2,8 +2,8 @@
 #define GEAROENIX_PLATFORM_LOG_HPP
 #include "../core/gx-cr-build-configuration.hpp"
 #include "../core/macro/gx-cr-mcr-concatenate.hpp"
+#include "../core/macro/gx-cr-mcr-lock.hpp"
 #include "gx-plt-build-configuration.hpp"
-#include "macro/gx-plt-mcr-lock.hpp"
 #include <exception>
 #include <fstream>
 #include <iostream>

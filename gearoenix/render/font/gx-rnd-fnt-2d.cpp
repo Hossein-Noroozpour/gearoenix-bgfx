@@ -4,9 +4,9 @@
 #include "../../platform/gx-plt-application.hpp"
 #include "../../platform/stream/gx-plt-stm-asset.hpp"
 #include "../../platform/stream/gx-plt-stm-memory.hpp"
-#include "../engine/gx-rnd-eng-engine.hpp"
 #include "../texture/gx-rnd-txt-manager.hpp"
 #include "../texture/gx-rnd-txt-texture-2d.hpp"
+#include "gearoenix/render/gx-rnd-engine.hpp"
 #include <cmath>
 #include <string>
 

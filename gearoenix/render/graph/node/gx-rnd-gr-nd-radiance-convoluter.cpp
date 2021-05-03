@@ -8,7 +8,6 @@
 #include "../../camera/gx-rnd-cmr-camera.hpp"
 #include "../../command/gx-rnd-cmd-buffer.hpp"
 #include "../../command/gx-rnd-cmd-manager.hpp"
-#include "../../engine/gx-rnd-eng-engine.hpp"
 #include "../../mesh/gx-rnd-msh-mesh.hpp"
 #include "../../pipeline/gx-rnd-pip-manager.hpp"
 #include "../../pipeline/gx-rnd-pip-pipeline.hpp"
@@ -17,6 +16,7 @@
 #include "../../texture/gx-rnd-txt-manager.hpp"
 #include "../../texture/gx-rnd-txt-target.hpp"
 #include "../../texture/gx-rnd-txt-texture-cube.hpp"
+#include "gearoenix/render/gx-rnd-engine.hpp"
 
 gearoenix::render::graph::node::RadianceConvoluterUniform::RadianceConvoluterUniform(const float r, const float resolution) noexcept
     : roughness(r)

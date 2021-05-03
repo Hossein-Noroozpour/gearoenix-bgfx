@@ -1,11 +1,5 @@
 SET(GX_ENGINE_PLATFORM_SRC_DIR ${GX_ENGINE_SRC_DIR}/platform)
 SET(GX_ENGINE_PLATFORM_SRC
-        ${GX_ENGINE_PLATFORM_SRC_DIR}/bgfx/gx-plt-bgfx-application.cpp
-        ${GX_ENGINE_PLATFORM_SRC_DIR}/bgfx/gx-plt-bgfx-application.hpp
-        ${GX_ENGINE_PLATFORM_SRC_DIR}/bgfx/gx-plt-bgfx-main-entry.hpp
-        ${GX_ENGINE_PLATFORM_SRC_DIR}/macro/gx-plt-mcr-disable-warnings.hpp
-        ${GX_ENGINE_PLATFORM_SRC_DIR}/macro/gx-plt-mcr-enable-warnings.hpp
-        ${GX_ENGINE_PLATFORM_SRC_DIR}/macro/gx-plt-mcr-lock.hpp
         ${GX_ENGINE_PLATFORM_SRC_DIR}/stream/gx-plt-stm-asset.cpp
         ${GX_ENGINE_PLATFORM_SRC_DIR}/stream/gx-plt-stm-asset.hpp
         ${GX_ENGINE_PLATFORM_SRC_DIR}/stream/gx-plt-stm-local.cpp
@@ -20,6 +14,7 @@ SET(GX_ENGINE_PLATFORM_SRC
         ${GX_ENGINE_PLATFORM_SRC_DIR}/gx-plt-application.hpp
         ${GX_ENGINE_PLATFORM_SRC_DIR}/gx-plt-arguments.cpp
         ${GX_ENGINE_PLATFORM_SRC_DIR}/gx-plt-arguments.hpp
+        ${GX_ENGINE_PLATFORM_SRC_DIR}/gx-plt-bgfx-flags.hpp
         ${GX_ENGINE_PLATFORM_SRC_DIR}/gx-plt-build-configuration.hpp
         ${GX_ENGINE_PLATFORM_SRC_DIR}/gx-plt-key.cpp
         ${GX_ENGINE_PLATFORM_SRC_DIR}/gx-plt-key.hpp

@@ -7,7 +7,6 @@
 #include "../../camera/gx-rnd-cmr-camera.hpp"
 #include "../../command/gx-rnd-cmd-buffer.hpp"
 #include "../../command/gx-rnd-cmd-manager.hpp"
-#include "../../engine/gx-rnd-eng-engine.hpp"
 #include "../../material/gx-rnd-mat-material.hpp"
 #include "../../mesh/gx-rnd-msh-mesh.hpp"
 #include "../../model/gx-rnd-mdl-mesh.hpp"
@@ -19,6 +18,7 @@
 #include "../../sync/gx-rnd-sy-semaphore.hpp"
 #include "../../texture/gx-rnd-txt-manager.hpp"
 #include "../../texture/gx-rnd-txt-texture-cube.hpp"
+#include "gearoenix/render/gx-rnd-engine.hpp"
 
 gearoenix::render::graph::node::SkyboxEquirectangularRenderData::SkyboxEquirectangularRenderData(
     engine::Engine* const e,

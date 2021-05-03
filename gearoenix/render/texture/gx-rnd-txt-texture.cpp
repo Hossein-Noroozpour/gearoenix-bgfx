@@ -2,7 +2,7 @@
 #include "../../core/sync/gx-cr-sync-parallel-for.hpp"
 #include "../../math/gx-math-numeric.hpp"
 #include "../../platform/stream/gx-plt-stm-local.hpp"
-#include "../engine/gx-rnd-eng-engine.hpp"
+#include "gearoenix/render/gx-rnd-engine.hpp"
 #include "gx-rnd-txt-image.hpp"
 #include "gx-rnd-txt-pixel-iterator.hpp"
 #include <cmath>

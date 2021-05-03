@@ -7,9 +7,9 @@
 #include "../camera/gx-rnd-cmr-manager.hpp"
 #include "../camera/gx-rnd-cmr-orthographic.hpp"
 #include "../camera/gx-rnd-cmr-transformation.hpp"
-#include "../engine/gx-rnd-eng-engine.hpp"
 #include "../model/gx-rnd-mdl-model.hpp"
 #include "../widget/gx-rnd-wdg-edit.hpp"
+#include "gearoenix/render/gx-rnd-engine.hpp"
 
 void gearoenix::render::scene::Ui::find_hit_widgets(
     const double x, const double y,
