@@ -5,7 +5,7 @@ SET(GX_SRC_DIR ${GX_EXAMPLES_SRC_DIR}/002-hello-triangle)
 SET(GX_SRC ${GX_SRC_DIR}/gx-ex-002-main.cpp)
 
 IF (NOT CMAKE_SYSTEM_NAME MATCHES "Android")
-    ADD_EXECUTABLE(GearoenixExample002HelloTriangle ${GEAROENIX_EXE_TARGET} ${GX_SRC})
+    ADD_EXECUTABLE(GearoenixExample002HelloTriangle ${GX_SRC})
     TARGET_LINK_LIBRARIES(GearoenixExample002HelloTriangle GearoenixGameEngine)
 ELSEIF (GX_ENABLE_EXAMPLE_002_HELLO_TRIANGLE)
     ADD_LIBRARY(main SHARED ${GX_SRC})
