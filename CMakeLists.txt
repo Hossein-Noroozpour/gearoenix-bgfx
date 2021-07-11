@@ -65,7 +65,7 @@ GX_PREPARE_BGFX()
 # GX_COMPILE_LIB(${GX_BULLET3_PATH})
 
 SET(GX_BOOST_PATH "${GX_SDK_PATH}/boost")
-GX_DOWNLOAD_FILE("https://dl.bintray.com/boostorg/release/1.74.0/source/boost_1_76_0.zip" "${GX_BOOST_PATH}")
+GX_DOWNLOAD_FILE("https://github.com/boostorg/boost/archive/refs/tags/boost-1.76.0.zip" "${GX_BOOST_PATH}")
 INCLUDE_DIRECTORIES(SYSTEM ${GX_BOOST_PATH})
 
 ADD_SUBDIRECTORY(gearoenix)

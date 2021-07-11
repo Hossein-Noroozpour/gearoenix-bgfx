@@ -1,7 +1,11 @@
 #include <gearoenix/core/gx-cr-application.hpp>
 #include <gearoenix/platform/gx-plt-application.hpp>
 #include <gearoenix/render/gx-rnd-engine.hpp>
+#include <gearoenix/render/gx-rnd-vertex.hpp>
+#include <gearoenix/render/material/gx-rnd-mat-pbr.hpp>
+#include <gearoenix/render/mesh/gx-rnd-msh-builder.hpp>
 #include <gearoenix/render/mesh/gx-rnd-msh-manager.hpp>
+#include <gearoenix/render/scene/gx-rnd-scn-builder.hpp>
 #include <gearoenix/render/scene/gx-rnd-scn-manager.hpp>
 
 struct GameApp final : public gearoenix::core::Application {
@@ -18,14 +22,15 @@ struct GameApp final : public gearoenix::core::Application {
 
         std::vector<std::uint32_t> indices = { 0, 1, 2 };
 
-        auto mesh_builder = render_engine->get_mesh_manager()->create_builder(vertices, indices);
+        auto mesh_builder = render_engine->get_mesh_manager()->create_builder("triangle", std::move(vertices), std::move(indices));
+        mesh_builder->add_material(gearoenix::render::material::Pbr(*render_engine));
 
-        scene_creator->add_mesh(std::move(mesh_builder));
+        scene_creator->add(std::move(mesh_builder));
 
         auto camera_builder = render_engine->get_camera_manager()->create_builder();
         camera_builder->get_transformation()->set_position(0.0f, 0.0f, 5.0f);
 
-        scene_creator->add_camera(std::move(camera_builder));
+        scene_creator->add(std::move(camera_builder));
     }
 };
 

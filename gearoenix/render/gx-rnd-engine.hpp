@@ -1,14 +1,9 @@
 #ifndef GEAROENIX_RENDER_ENGINE_ENGINE_HPP
 #define GEAROENIX_RENDER_ENGINE_ENGINE_HPP
-#include "../core/sync/gx-cr-sync-end-caller.hpp"
-#include "../math/gx-math-vertex.hpp"
+#include "../core/macro/gx-cr-mcr-getter-setter.hpp"
 #include "gx-rnd-limitations.hpp"
-#include "gx-rnd-runtime-configuration.hpp"
-#include "texture/gx-rnd-txt-attachment.hpp"
 #include <chrono>
 #include <memory>
-#include <set>
-#include <vector>
 
 namespace gearoenix::core {
 struct FunctionLoader;
@@ -26,8 +21,13 @@ namespace gearoenix::platform {
 struct Application;
 }
 
+namespace gearoenix::render::material {
+struct Manager;
+}
+
 namespace gearoenix::render::mesh {
 struct Mesh;
+struct Manager;
 }
 
 namespace gearoenix::render::scene {
@@ -46,6 +46,8 @@ struct Engine final {
     GX_GET_VAL_PRV(unsigned int, frame_number_from_start, static_cast<decltype(frame_number)>(-1))
     GX_GET_VAL_PRV(double, delta_time, 0.0f)
     GX_GET_UPTR_PRV(scene::Manager, scene_manager)
+    GX_GET_UPTR_PRV(mesh::Manager, mesh_manager)
+    GX_GET_UPTR_PRV(material::Manager, material_manager)
     GX_GET_UPTR_PRV(core::ecs::World, world)
     GX_GET_CREF_PRV(std::chrono::time_point<std::chrono::high_resolution_clock>, last_frame_time)
 
@@ -56,11 +58,6 @@ public:
     void gui_update() noexcept;
     void update() noexcept;
     void upload_imgui_fonts() noexcept;
-    void create_mesh(
-        const std::string& name,
-        const std::vector<math::BasicVertex>& vertices,
-        const std::vector<std::uint32_t>& indices,
-        core::sync::EndCaller<mesh::Mesh>& c) noexcept;
 };
 }
 #endif

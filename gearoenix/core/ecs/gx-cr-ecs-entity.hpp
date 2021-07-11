@@ -79,6 +79,36 @@ public:
         ((add_component(std::move(cs))), ...);
     }
 
+    template <typename ComponentType>
+    std::optional<const ComponentType&> get_component() const noexcept
+    {
+        Component::types_check<ComponentType>();
+        const auto search = std::lower_bound(
+            components.begin(), components.end(),
+            Component::create_type_index<ComponentType>(),
+            [](const component_t& l, const std::type_index& r) noexcept -> bool {
+                return l < r;
+            });
+        if (components.end() == search)
+            return std::nullopt;
+        return *search;
+    }
+
+    template <typename ComponentType>
+    std::optional<ComponentType&> get_component() noexcept
+    {
+        Component::types_check<ComponentType>();
+        const auto search = std::lower_bound(
+            components.begin(), components.end(),
+            Component::create_type_index<ComponentType>(),
+            [](const component_t& l, const std::type_index& r) noexcept -> bool {
+                return l < r;
+            });
+        if (components.end() == search)
+            return std::nullopt;
+        return *search;
+    }
+
     static void sort(components_t&) noexcept;
 };
 

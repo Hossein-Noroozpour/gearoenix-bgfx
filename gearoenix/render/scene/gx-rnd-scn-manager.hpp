@@ -21,10 +21,10 @@ private:
     std::unique_ptr<core::sync::WorkWaiter> io_worker;
     std::vector<std::pair<std::string, core::ecs::Entity::id_t>> name_to_id;
     std::vector<std::pair<core::ecs::Entity::id_t, std::string>> id_to_name;
-    std::vector<std::pair<float, core::ecs::Entity::id_t>> render_priorities;
+    std::vector<std::pair<float, core::ecs::Entity::id_t>> render_layers;
 
 public:
-    constexpr static const float DEFAULT_RENDER_PRIORITY = 0.0f;
+    constexpr static const float DEFAULT_RENDER_LAYER = 0.0f;
 
     explicit Manager(Engine& e) noexcept;
     ~Manager() noexcept;

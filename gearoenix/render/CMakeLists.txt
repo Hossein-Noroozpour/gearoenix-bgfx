@@ -67,10 +67,10 @@ SET(GX_ENGINE_RENDER_SRC
 #        ${GX_ENGINE_RENDER_SRC_DIR}/light/gx-rnd-lt-point.cpp
 #        ${GX_ENGINE_RENDER_SRC_DIR}/light/gx-rnd-lt-point.hpp
 #        ${GX_ENGINE_RENDER_SRC_DIR}/light/gx-rnd-lt-type.hpp
-#        ${GX_ENGINE_RENDER_SRC_DIR}/material/gx-rnd-mat-material.cpp
-#        ${GX_ENGINE_RENDER_SRC_DIR}/material/gx-rnd-mat-material.hpp
-#        ${GX_ENGINE_RENDER_SRC_DIR}/material/gx-rnd-mat-pbr.cpp
-#        ${GX_ENGINE_RENDER_SRC_DIR}/material/gx-rnd-mat-pbr.hpp
+        ${GX_ENGINE_RENDER_SRC_DIR}/material/gx-rnd-mat-manager.cpp
+        ${GX_ENGINE_RENDER_SRC_DIR}/material/gx-rnd-mat-manager.hpp
+        ${GX_ENGINE_RENDER_SRC_DIR}/material/gx-rnd-mat-pbr.cpp
+        ${GX_ENGINE_RENDER_SRC_DIR}/material/gx-rnd-mat-pbr.hpp
 #        ${GX_ENGINE_RENDER_SRC_DIR}/material/gx-rnd-mat-skybox-cube.cpp
 #        ${GX_ENGINE_RENDER_SRC_DIR}/material/gx-rnd-mat-skybox-cube.hpp
 #        ${GX_ENGINE_RENDER_SRC_DIR}/material/gx-rnd-mat-skybox-equirectangular.cpp
@@ -80,10 +80,12 @@ SET(GX_ENGINE_RENDER_SRC
 #        ${GX_ENGINE_RENDER_SRC_DIR}/material/gx-rnd-mat-type.hpp
 #        ${GX_ENGINE_RENDER_SRC_DIR}/material/gx-rnd-mat-unlit.cpp
 #        ${GX_ENGINE_RENDER_SRC_DIR}/material/gx-rnd-mat-unlit.hpp
-#        ${GX_ENGINE_RENDER_SRC_DIR}/mesh/gx-rnd-msh-manager.cpp
-#        ${GX_ENGINE_RENDER_SRC_DIR}/mesh/gx-rnd-msh-manager.hpp
+        ${GX_ENGINE_RENDER_SRC_DIR}/mesh/gx-rnd-msh-builder.cpp
+        ${GX_ENGINE_RENDER_SRC_DIR}/mesh/gx-rnd-msh-builder.hpp
+        ${GX_ENGINE_RENDER_SRC_DIR}/mesh/gx-rnd-msh-manager.cpp
+        ${GX_ENGINE_RENDER_SRC_DIR}/mesh/gx-rnd-msh-manager.hpp
+        ${GX_ENGINE_RENDER_SRC_DIR}/mesh/gx-rnd-msh-mesh.cpp
         ${GX_ENGINE_RENDER_SRC_DIR}/mesh/gx-rnd-msh-mesh.hpp
-#        ${GX_ENGINE_RENDER_SRC_DIR}/mesh/gx-rnd-msh-type.hpp
 #        ${GX_ENGINE_RENDER_SRC_DIR}/model/gx-rnd-mdl-dynamic.cpp
 #        ${GX_ENGINE_RENDER_SRC_DIR}/model/gx-rnd-mdl-dynamic.hpp
 #        ${GX_ENGINE_RENDER_SRC_DIR}/model/gx-rnd-mdl-manager.cpp
@@ -164,5 +166,7 @@ SET(GX_ENGINE_RENDER_SRC
         ${GX_ENGINE_RENDER_SRC_DIR}/gx-rnd-engine.hpp
         ${GX_ENGINE_RENDER_SRC_DIR}/gx-rnd-limitations.hpp
         ${GX_ENGINE_RENDER_SRC_DIR}/gx-rnd-runtime-configuration.cpp
-        ${GX_ENGINE_RENDER_SRC_DIR}/gx-rnd-runtime-configuration.hpp)
+        ${GX_ENGINE_RENDER_SRC_DIR}/gx-rnd-runtime-configuration.hpp
+        ${GX_ENGINE_RENDER_SRC_DIR}/gx-rnd-vertex.cpp
+        ${GX_ENGINE_RENDER_SRC_DIR}/gx-rnd-vertex.hpp)
 SET(GX_ENGINE_RENDER_SRC ${GX_ENGINE_RENDER_SRC} PARENT_SCOPE)

@@ -1,9 +1,10 @@
 #include "gx-rnd-scn-scene.hpp"
 
-gearoenix::render::scene::Scene::Scene(
-    engine::Engine* const,
-    const std::size_t scene_index,
-    const core::sync::EndCallerIgnored& c) noexcept
+void gearoenix::render::scene::Scene::add_entity(core::ecs::Entity::id_t e) noexcept
+{
+}
+
+gearoenix::render::scene::Scene::Scene() noexcept
     : core::ecs::Component(this)
 {
     std::sort(entities.begin(), entities.end());

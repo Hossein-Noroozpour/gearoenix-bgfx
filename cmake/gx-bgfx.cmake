@@ -34,6 +34,10 @@ FUNCTION(GX_PREPARE_BGFX)
                         "<RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>"
                         "<RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>"
                         GX_BGFX_PFC "${GX_BGFX_PFC}")
+                STRING(REPLACE
+                        "<WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>"
+                        "<WindowsTargetPlatformVersion>10</WindowsTargetPlatformVersion>"
+                        GX_BGFX_PFC "${GX_BGFX_PFC}")
                 FILE(WRITE ${GX_BGFX_PRO_FILE} "${GX_BGFX_PFC}")
             ENDFOREACH()
             FOREACH(GX_BGFX_PRO_FILE ${GX_BGFX_PRO_FILES})

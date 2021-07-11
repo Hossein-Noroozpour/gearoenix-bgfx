@@ -40,3 +40,5 @@ cmake-build-*/
 .settings
 .idea/
 sdk/
+.vs/
+CMakeSettings.json

@@ -1,11 +1,16 @@
 #include "gx-rnd-engine.hpp"
 #include "../core/ecs/gx-cr-ecs-world.hpp"
 #include "../platform/gx-plt-application.hpp"
+#include "gx-rnd-vertex.hpp"
+#include "material/gx-rnd-mat-manager.hpp"
+#include "mesh/gx-rnd-msh-manager.hpp"
 #include "scene/gx-rnd-scn-manager.hpp"
 
 gearoenix::render::Engine::Engine(const platform::Application& platform_application) noexcept
     : platform_application(platform_application)
     , scene_manager(new scene::Manager(*this))
+    , mesh_manager(new mesh::Manager(*this))
+    , material_manager(new material::Manager())
     , world(new core::ecs::World())
     , last_frame_time(std::chrono::high_resolution_clock::now())
 {
